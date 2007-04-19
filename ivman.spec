@@ -7,7 +7,7 @@ Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: %{name}-%{version}.tar.bz2
-Source1: ivman-initscript.bz2
+Source1: ivman.init
 Patch0: ivman-0.6.6-daemon.patch
 License: QPL
 Group: System/Base
@@ -42,9 +42,7 @@ these properties change to a predefined value.
 rm -rf %{buildroot}
 %makeinstall_std
 
-mkdir -p %{buildroot}/%{_initrddir}
-bzcat %{SOURCE1} > %{buildroot}/%{_initrddir}/%{name}
-chmod 755 %{buildroot}/%{_initrddir}/%{name}
+install -D -m755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
 %find_lang %{name}
 
 %pre
