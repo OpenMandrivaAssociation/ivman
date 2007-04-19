@@ -1,9 +1,6 @@
-%define __libtoolize /bin/true
-%define __cputoolize /bin/true
-
 %define name ivman
-%define version 0.6.13
-%define release %mkrel 3
+%define version 0.6.14
+%define release %mkrel 1
 
 Summary: A volume manager daemon
 Name: %{name}
