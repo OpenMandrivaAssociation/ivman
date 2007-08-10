@@ -1,6 +1,6 @@
 %define name ivman
 %define version 0.6.14
-%define release %mkrel 1
+%define release %mkrel 2
 
 Summary: A volume manager daemon
 Name: %{name}
@@ -9,6 +9,7 @@ Release: %{release}
 Source0: %{name}-%{version}.tar.bz2
 Source1: ivman.init
 Patch0: ivman-0.6.6-daemon.patch
+Patch1: ivman-0.6.14-nodebug.patch
 License: QPL
 Group: System/Base
 Url: http://ivman.sourceforge.net/
@@ -33,6 +34,7 @@ these properties change to a predefined value.
 %prep
 %setup -q -n %{name}-%{version}
 %patch0 -p1 -b .daemon
+%patch1 -p1 -b .nodebug
 
 %build
 %configure2_5x
