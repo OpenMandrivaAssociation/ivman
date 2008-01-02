@@ -13,6 +13,7 @@ Patch1: ivman-0.6.14-nodebug.patch
 License: QPL
 Group: System/Base
 Url: http://ivman.sourceforge.net/
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: glib-devel
 BuildRequires: hal-devel
 BuildRequires: dbus-devel
