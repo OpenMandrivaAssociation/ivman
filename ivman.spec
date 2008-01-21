@@ -1,6 +1,6 @@
 %define name ivman
 %define version 0.6.14
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary: A volume manager daemon
 Name: %{name}
@@ -10,6 +10,9 @@ Source0: %{name}-%{version}.tar.bz2
 Source1: ivman.init
 Patch0: ivman-0.6.6-daemon.patch
 Patch1: ivman-0.6.14-nodebug.patch
+Patch2: ivman-0.6.14-fix-umount.patch
+Patch3: ivman-0.6.14-manpage-system-service-not-needed.patch
+
 License: QPL
 Group: System/Base
 Url: http://ivman.sourceforge.net/
@@ -23,6 +26,7 @@ BuildRequires: pmount
 BuildRequires: dbus-glib-devel
 Requires(post): rpm-helper
 Requires(preun): rpm-helper
+Suggests: pmount
 
 %description
 Ivman is a volume manager daemon. It detects added volumes such as DVDs, CDs, 
@@ -35,6 +39,8 @@ these properties change to a predefined value.
 %setup -q -n %{name}-%{version}
 %patch0 -p1 -b .daemon
 %patch1 -p1 -b .nodebug
+%patch2 -p1 -b .umount
+%patch3 -p1 -b .noinit
 
 %build
 %configure2_5x
@@ -68,5 +74,4 @@ rm -rf %{buildroot}
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}/*
 %{_initrddir}/%{name}
-
 
