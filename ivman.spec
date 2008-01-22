@@ -1,6 +1,6 @@
 %define name ivman
 %define version 0.6.14
-%define release %mkrel 3
+%define release %mkrel 4
 
 Summary: A volume manager daemon
 Name: %{name}
@@ -8,6 +8,7 @@ Version: %{version}
 Release: %{release}
 Source0: %{name}-%{version}.tar.bz2
 Source1: ivman.init
+Source2: ivman.xinit
 Patch0: ivman-0.6.6-daemon.patch
 Patch1: ivman-0.6.14-nodebug.patch
 Patch2: ivman-0.6.14-fix-umount.patch
@@ -51,6 +52,7 @@ rm -rf %{buildroot}
 %makeinstall_std
 
 install -D -m755 %{SOURCE1} %{buildroot}%{_initrddir}/%{name}
+install -D -m755 %{SOURCE2} %{buildroot}%{_sysconfdir}/X11/xinit.d/%{name}
 %find_lang %{name}
 
 %pre
@@ -74,4 +76,4 @@ rm -rf %{buildroot}
 %dir %{_sysconfdir}/%{name}
 %config(noreplace) %{_sysconfdir}/%{name}/*
 %{_initrddir}/%{name}
-
+%{_sysconfdir}/X11/xinit.d/%{name}
