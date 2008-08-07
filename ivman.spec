@@ -1,6 +1,6 @@
 %define name ivman
 %define version 0.6.14
-%define release %mkrel 5
+%define release %mkrel 6
 
 Summary: A volume manager daemon
 Name: %{name}
