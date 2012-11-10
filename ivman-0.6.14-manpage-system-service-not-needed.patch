@@ -1,0 +1,28 @@
+diff -ur ivman-0.6.14.orig/ivman.8 ivman-0.6.14/ivman.8
+--- ivman-0.6.14.orig/ivman.8	2005-12-08 23:27:45.000000000 -0200
++++ ivman-0.6.14/ivman.8	2008-01-21 15:58:09.000000000 -0200
+@@ -69,13 +69,17 @@
+ Ivman is a flexible device manager, allowing users to run arbitrary commands when devices
+ are added/removed, when device properties change, and when devices emit conditions.
+ 
+-For automount purposes, Ivman should be run once from a system-wide init script and once
+-per user session (e.g., create a link to /usr/bin/ivman in  ~/.kde/Autostart or
+-put an entry for /usr/bin/ivman in gnome-session-manager).
+-When a device is attached, Ivman will call pmount or mount to mount the device.  If pmount is used, it will mount
+-the device readable and writeable only for the current user; if no per-user instance of
+-Ivman is running, the device will be mounted read/write for everyone in the same group as
+-is required to use the pmount command, and read-only for everyone else.  If regular mount is used, then an fstab entry must exist in /etc/fstab for the device to be mounted, and the settings given in that fstab entry will be used for the mount.
++For automount purposes, just starting ivman on the user session should be
++enough (e.g., create a link to /usr/bin/ivman in  ~/.kde/Autostart or put an
++entry for /usr/bin/ivman in gnome-session-manager), but a more flexible
++option is to start the system daemon as well.  When a device is attached,
++Ivman will call pmount or mount to mount the device.  If pmount is used, it
++will mount the device readable and writeable only for the current user; if
++no per-user instance of Ivman is running, the device will be mounted
++read/write for everyone in the same group as is required to use the pmount
++command, and read-only for everyone else.  If regular mount is used, then an
++fstab entry must exist in /etc/fstab for the device to be mounted, and the
++settings given in that fstab entry will be used for the mount.
+ 
+ Ivman is supplied with sensible default configuration files for
+ volume management, but autoplay functionality has no default actions;

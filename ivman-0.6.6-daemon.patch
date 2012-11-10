@@ -1,0 +1,11 @@
+--- ivman-0.6.6/src/IvmConfig/IvmConfigBase.xml.daemon	2005-11-21 10:17:14.000000000 +0100
++++ ivman-0.6.6/src/IvmConfig/IvmConfigBase.xml	2005-11-23 13:48:00.000000000 +0100
+@@ -24,7 +24,7 @@
+     <ivm:Option name="user" value="ivman" /> 
+ 
+     <!-- group for Ivman to run as. Should have permissions to run 'pmount'. -->
+-    <ivm:Option name="group" value="plugdev" />
++    <ivm:Option name="group" value="daemon" />
+ 
+     <!-- mount command.  default is autodetected.  Must be specified with
+          umountcommand. -->
