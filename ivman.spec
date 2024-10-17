@@ -16,7 +16,7 @@ Patch3: ivman-0.6.14-manpage-system-service-not-needed.patch
 
 License: QPL
 Group: System/Base
-Url: http://ivman.sourceforge.net/
+Url: https://ivman.sourceforge.net/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: glib-devel
 BuildRequires: hal-devel
