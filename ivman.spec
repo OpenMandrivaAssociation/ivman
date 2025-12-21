@@ -18,6 +18,11 @@ License: QPL
 Group: System/Base
 Url: https://ivman.sourceforge.net/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires: glib-devel
 BuildRequires: hal-devel
 BuildRequires: dbus-devel
